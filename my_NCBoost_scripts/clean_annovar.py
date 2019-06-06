@@ -11,13 +11,46 @@
 def update_intergenic(closest_gene, chrom, pos, ref, alt) :
 
     #new way to assign gene to intergenic region (PCHIC)
-    var="chr_"+str(chr)+"_"+str(pos)+"_"+ref+"_"+alt
+    var="chr"+str(chrom)+"_"+str(pos)+"_"+ref+"_"+alt
+
+    print (var)
 
     if var in PCdata.index:
-        if PCdata.loc[var,max]>=PCth:
-            print (PCdata.loc[var,ensembl_gene_id])
-            gene_symbol = 'NOT_FOUND'
-    #original way to treat intergenic region
+        temp_data=PCdata.loc[var,"ensembl_gene_id"]
+        print (temp_data)
+        gene_symbol = 'NOT_FOUND'
+        return gene_symbol
+
+        # siamo al punto in cui bisogna capire se se selezionare prima per il max 
+        # o per la variante
+
+        # if PCdata.loc[var,max]>=int(PCth):
+        #     print (PCdata.loc[var,"ensembl_gene_id"])
+        #     gene_symbol = 'NOT_FOUND'
+        #     return gene_symbol
+        # #original way to treat intergenic region
+        # else:
+        #     genes = closest_gene.replace("(dist=", " ")
+        #     genes = genes.replace("),", " ")
+        #     genes = genes.replace(")", "")
+        #     genes = genes.split(" ")
+        #     if check_in_geneDB(genes[0]) == False:
+        #         genes[0] = 'NONE'
+        #     if check_in_geneDB(genes[2]) == False:
+        #         genes[2] = 'NONE'
+        #     if (genes[0] == 'NONE') and (genes[2] == 'NONE'):
+        #         gene_symbol = 'NOT_FOUND'
+        #     elif genes[0] == 'NONE':
+        #         gene_symbol = genes[2]
+        #     elif genes[2] == 'NONE':
+        #         gene_symbol = genes[0]
+        #     elif int(genes[1]) <= int(genes[3]):
+        #         gene_symbol = genes[0]
+        #     elif int(genes[3]) <= int(genes[1]):
+        #         gene_symbol = genes[2]
+        #     elif int(genes[3]) == int(genes[1]):
+        #         gene_symbol = genes[0]
+        #     return gene_symbol
     else:
         genes = closest_gene.replace("(dist=", " ")
         genes = genes.replace("),", " ")
@@ -39,9 +72,7 @@ def update_intergenic(closest_gene, chrom, pos, ref, alt) :
             gene_symbol = genes[2]
         elif int(genes[3]) == int(genes[1]):
             gene_symbol = genes[0]
-
-    return gene_symbol
-
+        return gene_symbol
 
 #END_my_chages
 
