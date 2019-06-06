@@ -8,35 +8,40 @@
 
 #START_my_chages
 
-# def update_intergenic(closest_gene, chrom, pos) :
-#     genes = closest_gene.replace("(dist=", " ")
-#     genes = genes.replace("),", " ")
-#     genes = genes.replace(")", "")
-#     genes = genes.split(" ")
-#     if check_in_geneDB(genes[0]) == False:
-#         genes[0] = 'NONE'
-#     if check_in_geneDB(genes[2]) == False:
-#         genes[2] = 'NONE'
-#     if (genes[0] == 'NONE') and (genes[2] == 'NONE'):
-#         gene_symbol = 'NOT_FOUND'
-#     elif genes[0] == 'NONE':
-#         gene_symbol = genes[2]
-#     elif genes[2] == 'NONE':
-#         gene_symbol = genes[0]
-#     elif int(genes[1]) <= int(genes[3]):
-#         gene_symbol = genes[0]
-#     elif int(genes[3]) <= int(genes[1]):
-#         gene_symbol = genes[2]
-#     elif int(genes[3]) == int(genes[1]):
-#         gene_symbol = genes[0]
-#     return gene_symbol
+def update_intergenic(closest_gene, chrom, pos, ref, alt) :
 
+    #new way to assign gene to intergenic region (PCHIC)
+    var="chr_"+str(chr)+"_"+str(pos)+"_"+ref+"_"+alt
 
-def def PCHIC_update_intergenic(chrom, pos) :
-
-    -
+    if var in PCdata.index:
+        if PCdata.loc[var,max]>=args.PCth:
+            print (PCdata.loc[var,ensembl_gene_id])
+            gene_symbol = 'NOT_FOUND'
+    #original way to treat intergenic region
+    else:
+        genes = closest_gene.replace("(dist=", " ")
+        genes = genes.replace("),", " ")
+        genes = genes.replace(")", "")
+        genes = genes.split(" ")
+        if check_in_geneDB(genes[0]) == False:
+            genes[0] = 'NONE'
+        if check_in_geneDB(genes[2]) == False:
+            genes[2] = 'NONE'
+        if (genes[0] == 'NONE') and (genes[2] == 'NONE'):
+            gene_symbol = 'NOT_FOUND'
+        elif genes[0] == 'NONE':
+            gene_symbol = genes[2]
+        elif genes[2] == 'NONE':
+            gene_symbol = genes[0]
+        elif int(genes[1]) <= int(genes[3]):
+            gene_symbol = genes[0]
+        elif int(genes[3]) <= int(genes[1]):
+            gene_symbol = genes[2]
+        elif int(genes[3]) == int(genes[1]):
+            gene_symbol = genes[0]
 
     return gene_symbol
+
 
 #END_my_chages
 
@@ -315,6 +320,8 @@ argvL = sys.argv
 inF = argvL[1]
 inF_header = argvL[2]
 outF = argvL[3]
+PCtab = argvL[4]
+PCth = argvL[5]
 
 # Load the gene database containing the gene-based features, and create a 'NOT_FOUND' gene entry, to allow the annotation of all variants.
 geneDB = pd.read_csv("NCBoost_data/NCBoost_geneDB.tsv", sep='\t', delimiter=None,  dtype={"chr":"unicode"}, header=0)
@@ -327,11 +334,7 @@ context_features = ['UTR3', 'UTR5','downstream','intergenic','intronic', 'upstre
 
 #START_my_chages
 # Load the PCHIC table to retrive the genes releted to intergenic position
-
-
-
-
-
+PCdata=pd.read_csv(args.PCtab, sep='\t', delimiter=None, header=0, index_col=32)
 #END_my_chages
 
 
@@ -365,10 +368,7 @@ with open(inF, 'r') as f, open(outF, 'w') as fo:
 
 
             elif annovar_annotation == 'intergenic':
-                #START_my_chages
-                #updated_gene = update_intergenic(closest_gene_name, chrom, pos)
-                updated_gene = PCHIC_update_intergenic(chrom, pos)
-                #END_my_chages
+                updated_gene = update_intergenic(closest_gene_name, chrom, pos, ref, alt)
                 local_gene_annotations = geneDB.loc[geneDB["gene_name"] == updated_gene].iloc[0,4:].values
                 encoded_regions = one_hot_encoding(annovar_annotation)
                 fo.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (chrom, pos, ref, alt, annovar_annotation, updated_gene,'\t'.join(str(x) for x in (list(local_gene_annotations) + list(encoded_regions) + rest))))

@@ -3,11 +3,19 @@
 
 inF=$1
 outF=$2
+PCth=$3
 
 file_name=${inF:0:(${#inF}-4)}
 
+# default value for PCHIC is 5
+
+if [ -z $PCth ];then
+  PCth=5
+fi
+
 path_to_annovar='annovar'
 path_to_cadd='NCBoost_features'
+path_to_PCHIC='PCHIC_data'
 
 # sorting data for tabix
 echo $'\nsorting data\n'
@@ -24,7 +32,7 @@ perl $path_to_annovar/annotate_variation.pl -out $anno_out -build hg19 -splicing
 
 # 2- clean ANNOVAR output file, add gene-based features, one-hot encoding of the regions (~200 var/sec)
 echo $'\n\nCleanning ANNOVAR annotations, adding gene-based and context-awareness features\n'
-python3.6.1 NCBoost_scripts/clean_annovar.py $anno_out.variant_function $anno_out.invalid_input $anno_out.cleaned_variant_function
+python3.6.1 NCBoost_scripts/clean_annovar.py $anno_out.variant_function $anno_out.invalid_input $anno_out.cleaned_variant_function $path_to_PCHIC/PCHIC_table.tsv $PCth
 
 
 
