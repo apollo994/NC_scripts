@@ -14,7 +14,7 @@ def update_intergenic(closest_gene, chrom, pos, ref, alt) :
     var="chr_"+str(chr)+"_"+str(pos)+"_"+ref+"_"+alt
 
     if var in PCdata.index:
-        if PCdata.loc[var,max]>=args.PCth:
+        if PCdata.loc[var,max]>=PCth:
             print (PCdata.loc[var,ensembl_gene_id])
             gene_symbol = 'NOT_FOUND'
     #original way to treat intergenic region
@@ -334,7 +334,7 @@ context_features = ['UTR3', 'UTR5','downstream','intergenic','intronic', 'upstre
 
 #START_my_chages
 # Load the PCHIC table to retrive the genes releted to intergenic position
-PCdata=pd.read_csv(args.PCtab, sep='\t', delimiter=None, header=0, index_col=32)
+PCdata=pd.read_csv(PCtab, sep='\t', delimiter=None, header=0, index_col=32)
 #END_my_chages
 
 
