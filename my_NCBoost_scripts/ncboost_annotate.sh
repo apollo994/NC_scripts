@@ -32,7 +32,7 @@ perl $path_to_annovar/annotate_variation.pl -out $anno_out -build hg19 -splicing
 
 # 2- clean ANNOVAR output file, add gene-based features, one-hot encoding of the regions (~200 var/sec)
 echo $'\n\nCleanning ANNOVAR annotations, adding gene-based and context-awareness features\n'
-python3.6.1 NCBoost_scripts/clean_annovar.py $anno_out.variant_function $anno_out.invalid_input $anno_out.cleaned_variant_function $path_to_PCHIC/PCHIC_table.tsv $PCth
+python3.6.1 my_NCBoost_scripts/clean_annovar.py $anno_out.variant_function $anno_out.invalid_input $anno_out.cleaned_variant_function $path_to_PCHIC/PCHIC_table.tsv $PCth
 
 
 
