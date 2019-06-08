@@ -18,7 +18,8 @@ mkdir -p ${res_folder}
 if [ "$speed" == "fast" ];then
 	./my_NCBoost_scripts/ncboost_annotate.sh \
 	${input} \
-	${res_folder}/${output}
+	${res_folder}/${output} \
+	5
 else
 	bsub -G team151 \
 	-o /$res_folder/${job_name}.out \
@@ -27,7 +28,7 @@ else
 	-R"select[mem>=4000] rusage[mem=4000] span[hosts=1]" \
 	-n1 \
 	-q normal \
-	-- "./my_NCBoost_scripts/ncboost_annotate.sh $input $res_folder/$output "
+	-- "./my_NCBoost_scripts/ncboost_annotate.sh $input $res_folder/$output 5 "
 fi
 
 
