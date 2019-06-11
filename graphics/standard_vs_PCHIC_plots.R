@@ -5,6 +5,7 @@ library("gridExtra")
 library("grid")
 library("RColorBrewer")
 library("Hmisc")
+library("gtools")
 
 
 ###############################################################################################
@@ -30,7 +31,16 @@ data$gene_change<-ifelse(as.character(data$ANN_gene)!=as.character(data$PCHIC_ge
 #column to see how many new genes has been recovered
 data$recovered<-ifelse(data$ANN_gene=="NOT_FOUND" & data$PCHIC_gene!="NOT_FOUND","1","0")
 
+#table with only position with new assignation, columns are the two scores
+#sub_PC<-data.frame(subset(data$PCICH_NCscore,data$gene_change=="New"))
+#sub_PC$method<-"PC"
 
+
+#sub_NC<-data.frame(subset(data$standard_NCscore,data$gene_change=="New"))
+#sub_NC$method<-"NC"
+
+only_new<-subset(data, data$gene_change=="New")
+wilcox.test(only_new$standard_NCscore, only_new$PCICH_NCscore, alternative = "less")
 
 ###############################################################################################
 
@@ -52,8 +62,4 @@ a<-a + annotate("text", x=3, y=nrow(na.omit(data[data$score_change=="UP",]))+150
 a<-a + annotate("text", x=4, y=nrow(data[is.na(data$score_change),])+150, label = nrow(data[is.na(data$score_change),]) , color="black", size=5 )
 a<-a + labs(title = "PCHIC gene reassignation result ", x= "Direction of SCORE change")
 
-
-
-#da finire distribuzione di NC e PC score nei new gene
-e<-ggplot(data[data$gene_change=="New",], aes(x=data$gene_change[data$gene_change=="New"], y=data$PCICH_NCscore[data$gene_change=="New",])) + geom_boxplot()
-
+#wilcox.test(x, y, alternative = "two.sided")
