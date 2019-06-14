@@ -1,4 +1,4 @@
-# Barthelemy Caron, Clinical BioInformatics Lab, IMAGINE 
+# Barthelemy Caron, Clinical BioInformatics Lab, IMAGINE
 
 folder='NCBoost_features'
 
@@ -54,8 +54,8 @@ for data in CEU CHB YRI; do
   tabix -p vcf -S 1 -f TajimasD_$data.whole_genome.pvalues.vcf.gz
 done
 
-rm *pvalues
-rm *tmp.vcf
+rm $folder/*pvalues
+rm $folder/*tmp.vcf
 
 cd ..
 
@@ -79,4 +79,3 @@ tabix -p bed $folder/CDTS_diff_perc_coordsorted_gnomAD_N15496_hg19.bed.gz
 
 echo 8/8
 echo ---------------------------------------------
-
