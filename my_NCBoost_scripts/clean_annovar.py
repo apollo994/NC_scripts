@@ -350,8 +350,10 @@ argvL = sys.argv
 inF = argvL[1]
 inF_header = argvL[2]
 outF = argvL[3]
+#START_my_chages################################################################
 PCth = argvL[4]
 PC_tab = argvL[5]
+#END_my_chages################################################################
 
 # Load the gene database containing the gene-based features, and create a 'NOT_FOUND' gene entry, to allow the annotation of all variants.
 geneDB = pd.read_csv("NCBoost_data/NCBoost_geneDB.tsv", sep='\t', delimiter=None,  dtype={"chr":"unicode"}, header=0)

@@ -40,7 +40,7 @@ data$old_new_region<-as.factor(data$old_new_region)
 
 # -new vs old closest gene name (discordant,concordant)
 data$closest_gene_name<-as.character(data$closest_gene_name)
-data$precom_closest_gene_name<-as.character(data$closest_gene_name)
+data$precom_closest_gene_name<-as.character(data$precom_closest_gene_name)
 data$old_new_gene<-ifelse(data$closest_gene_name==data$precom_closest_gene_name,"concordant","discordant")
 data$old_new_gene<-as.factor(data$old_new_gene)
 
