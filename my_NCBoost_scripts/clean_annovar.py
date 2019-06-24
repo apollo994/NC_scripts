@@ -8,11 +8,8 @@
 
 #Fabio Zanarello changes are marked as:
 #START_my_chages################################################################
-
 #some code
-
-#END_my_chages################################################################
-
+#END_my_chages##################################################################
 
 def update_intergenic(closest_gene, chrom, pos) :
     genes = closest_gene.replace("(dist=", " ")
@@ -36,52 +33,6 @@ def update_intergenic(closest_gene, chrom, pos) :
     elif int(genes[3]) == int(genes[1]):
         gene_symbol = genes[0]
     return gene_symbol
-
-#START_my_chages################################################################
-
-
-def update_PCICH_intergenic(closest_gene, chrom, pos, ref, alt) :
-
-    #new way to assign gene to intergenic region (PCHIC)
-    var="chr"+str(chrom)+"_"+str(pos)+"_"+ref+"_"+alt
-
-    if var in PCdata.index:
-        temp_data=PCdata.loc[var]
-
-        #multiple genes assignament
-        if isinstance(temp_data, pd.DataFrame):
-            #DataFrame converted in lists
-            genes_to_test=temp_data.values.tolist()
-            #Lists converted in list of tuples gene_symbol max value
-            gene_max=[]
-            for ex_row in genes_to_test:
-                gene_max.append(tuple((ex_row[1], ex_row[2])))
-            #List of tuple sorted
-            gene_max.sort(key = lambda x: float(x[1]), reverse = True)
-            #Cycle to use the first symbol present in geneDB
-            for tup in gene_max:
-                if check_in_geneDB(tup[0]) == True and tup[1]>=float(PCth):
-                    gene_symbol=tup[0]
-                    return gene_symbol
-
-            #if none of the genes are present go for rge default
-            return update_intergenic(closest_gene, chrom, pos)
-
-        #single gene assignament
-        else:
-            sym_to_test=PCdata.loc[var,"sym"]
-            if check_in_geneDB(sym_to_test) == False:
-                return update_intergenic(closest_gene, chrom, pos)
-            else:
-                gene_symbol=sym_to_test
-                return gene_symbol
-    else:
-        return update_intergenic(closest_gene, chrom, pos)
-
-
-
-
-#END_my_chages##################################################################
 
 def update_intronic(closest_gene, chrom, pos) :
     genes = closest_gene.split(",")
@@ -210,6 +161,11 @@ def update_updowns(annovar_annotation, closest_gene, chrom, pos):
     if len(re.split(r';', annovar_annotation)) == 1:
         # check if annotation is not upstream;dowstream, but only 'upstream' or 'downstream'
         if len(re.split(r',', closest_gene)) == 1:
+
+#START_my_chages################################################################
+            closest_gene = closest_gene.split("(")[0]
+#END_my_chages##################################################################
+
             # check if only one gene is associated to the variant, if True, return the gene name
             if check_in_geneDB(closest_gene) == False:
                 selected_gene = 'NOT_FOUND'
@@ -221,6 +177,11 @@ def update_updowns(annovar_annotation, closest_gene, chrom, pos):
             genes = re.split(r',', closest_gene)
             local_gene_list = []
             for gene in genes:
+
+#START_my_chages################################################################
+                gene = gene.split("(")[0]
+#END_my_chages##################################################################
+
                 # check if the genes are present in the database
                 if check_in_geneDB(gene) == True:
                     local_gene_list.append(gene)
@@ -257,9 +218,15 @@ def update_updowns(annovar_annotation, closest_gene, chrom, pos):
         anno_annotation_list = ['upstream','downstream']
         gene_list_up = re.split(r';', closest_gene)[0].split(',')
         gene_list_down = re.split(r';', closest_gene)[1].split(',')
+
         # for Upstream variants
         local_up_gene_list = []
         for up_gene in gene_list_up:
+
+#START_my_chages################################################################
+            up_gene = up_gene.split("(")[0]
+#END_my_chages##################################################################
+
             # check if upstream associated gene(s) are present in the database
             if check_in_geneDB(up_gene) is True:
                 local_up_gene_list.append(up_gene)
@@ -290,6 +257,11 @@ def update_updowns(annovar_annotation, closest_gene, chrom, pos):
         # for Downstream variants
         local_down_gene_list = []
         for down_gene in gene_list_down:
+
+#START_my_chages################################################################
+            down_gene = down_gene.split("(")[0]
+#END_my_chages##################################################################
+
             if check_in_geneDB(down_gene) is True:
                 local_down_gene_list.append(down_gene)
         if len(local_down_gene_list) == 1:
@@ -337,6 +309,11 @@ def update_updowns(annovar_annotation, closest_gene, chrom, pos):
             except ValueError:
                 selected_gene = selected_updown[0]
                 selected_annovar_annotation = anno_annotation_list[0]
+
+#START_my_chages################################################################
+    selected_gene=selected_gene.split("(")[0]
+#END_my_chages##################################################################
+
     if check_in_geneDB(selected_gene) == False:
         selected_gene = 'NOT_FOUND'
     return selected_gene, selected_annovar_annotation
@@ -358,10 +335,6 @@ argvL = sys.argv
 inF = argvL[1]
 inF_header = argvL[2]
 outF = argvL[3]
-#START_my_chages################################################################
-PCth = argvL[4]
-PC_tab = argvL[5]
-#END_my_chages################################################################
 
 # Load the gene database containing the gene-based features, and create a 'NOT_FOUND' gene entry, to allow the annotation of all variants.
 geneDB = pd.read_csv("NCBoost_data/NCBoost_geneDB.tsv", sep='\t', delimiter=None,  dtype={"chr":"unicode"}, header=0)
@@ -371,14 +344,6 @@ geneDB.chr = geneDB.chr.str.replace("chr","")
 geneDB_gene_names = geneDB.gene_name.unique()
 gene_annotations = [ 'gene_type', 'pLI', 'familyMemberCount', 'ncRVIS', 'ncGERP', 'RVIS_percentile', 'slr_dnds', 'GDI', 'gene_age']
 context_features = ['UTR3', 'UTR5','downstream','intergenic','intronic', 'upstream']
-
-#START_my_chages################################################################
-
-# Load the PCHIC table to retrive the genes releted to intergenic positions
-
-PCdata=pd.read_csv(PC_tab, sep='\t', delimiter=None, header=0, index_col=0)
-
-#END_my_chages##################################################################
 
 
 header = pd.read_csv("{}".format(inF_header), sep='\t', delimiter=None, header=None)
@@ -408,20 +373,11 @@ with open(inF, 'r') as f, open(outF, 'w') as fo:
             if any(re.findall(r'exonic|splicing|ncRNA', annovar_annotation, re.IGNORECASE)):
               exonic_count += 1
               pass
-
-
             elif annovar_annotation == 'intergenic':
-                #START_my_chages################################################
-
-                # updated_gene = update_intergenic(closest_gene_name, chrom, pos)
-                updated_gene = update_PCICH_intergenic(closest_gene_name, chrom, pos, ref, alt)
-
-                #START_my_chages################################################
+                updated_gene = update_intergenic(closest_gene_name, chrom, pos)
                 local_gene_annotations = geneDB.loc[geneDB["gene_name"] == updated_gene].iloc[0,4:].values
                 encoded_regions = one_hot_encoding(annovar_annotation)
                 fo.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (chrom, pos, ref, alt, annovar_annotation, updated_gene,'\t'.join(str(x) for x in (list(local_gene_annotations) + list(encoded_regions) + rest))))
-
-
             elif any(re.findall(r'downstream|upstream', annovar_annotation, re.IGNORECASE)):
                 updated_gene, updated_annovar_annotation = update_updowns(annovar_annotation, closest_gene_name, chrom, pos)
                 local_gene_annotations = geneDB.loc[geneDB["gene_name"] == updated_gene].iloc[0,4:].values
