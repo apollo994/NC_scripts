@@ -21,7 +21,7 @@ else
 	-o ${job_name}.out \
 	-M 4000 \
 	-J $job_name \
-	-R"select[mem>=4000] rusage[mem=4000] span[hosts=1]" \
+	-R "select[mem>=4000] rusage[mem=4000] span[hosts=1]" \
 	-n1 \
 	-q normal \
 	-- "./my_NCBoost_scripts/ncboost_annotate.sh $input $output 5 "
