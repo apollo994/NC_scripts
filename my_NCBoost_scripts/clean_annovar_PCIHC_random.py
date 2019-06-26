@@ -76,20 +76,13 @@ def update_PCICH_intergenic(closest_gene, chrom, pos, ref, alt) :
                         max_gene.append(gene)
 
                 # RANDOM VERSION
-                random_gene=random.choice(max_gene)
-                gene_symbol=random_gene[0]
-
-                return (gene_symbol)
-
-                # for gene in max_gene:
-                #     print (geneDB.loc[geneDB["gene_name"] == gene[0]].iloc[0,4:].values)
-                #
-                #
-                #
-                #
-                # return update_intergenic(closest_gene, chrom, pos)
-
-
+                if len(max_gene)==1:
+                    gene_symbol=max_gene[0][0]
+                    return (gene_symbol)
+                else:
+                    random_gene=random.choice(max_gene)
+                    gene_symbol=random_gene[0]
+                    return (gene_symbol)
 
 
         #single gene assignament
@@ -98,6 +91,10 @@ def update_PCICH_intergenic(closest_gene, chrom, pos, ref, alt) :
             # print (sym_to_test)
             if check_in_geneDB(sym_to_test) == False:
                 return update_intergenic(closest_gene, chrom, pos)
+
+            if PCdata.loc[var]["max"]<float(PCth):
+                return update_intergenic(closest_gene, chrom, pos)
+
             else:
                 gene_symbol=sym_to_test
                 return gene_symbol
