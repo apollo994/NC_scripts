@@ -89,10 +89,10 @@ def add_gene_and_score_PC(NCres,res_dic):
             GDI=str(line[13])
             gene_age=str(line[14])
             score=str(line[len(line)-2])
-            PC_gene=str(line[len(line)-1].strip("\n"))
+            PC_as=str(line[len(line)-1].strip("\n"))
             key=chr+pos+ref+alt
             if key in res_dic:
-                res_dic[key].append([gene, pLI,familyMemberCount,ncRVIS,ncGERP,RVIS_percentile,slr_dnds,GDI,gene_age,score,PC_gene])
+                res_dic[key].append([gene, pLI,familyMemberCount,ncRVIS,ncGERP,RVIS_percentile,slr_dnds,GDI,gene_age,score,PC_as])
     #add NAs to key not present in res
     for key in res_dic:
         if len(res_dic[key])==starting_element:
@@ -148,7 +148,7 @@ def write_output(res_dic, out_file):
         col_names.append("GDI_"+str(idx))
         col_names.append("gene_age_"+str(idx))
         col_names.append("NCsore_"+str(idx))
-        col_names.append("PC_gene_"+str(idx))
+        col_names.append("PC_as_"+str(idx))
 
     header="VAR\tANNOVAR_gene\tpLI\tfamilyMemberCount\tncRVIS\tncGERP\tRVIS_percentile\tslr_dnds\tGDI\tgene_age\tNC_score\t"+"\t".join(col_names)+"\n"
 
@@ -189,7 +189,7 @@ def main():
 
     write_output(results_dictionary, args.out)
 
-    
+
 
 
 if __name__ == "__main__":
