@@ -31,7 +31,7 @@ def get_var(NC_input):
             ref=s_line[3]
             alt=s_line[4].strip("\n")
             long_name="chr"+chr+"_"+pos+"_"+ref+"_"+alt
-            if len(ref)==1 and len(alt)==1: #indels are not considered                
+            if len(ref)==1 and len(alt)==1: #indels are not considered
                 variants.append([chr,pos,long_name])
     return (variants)
 
@@ -79,7 +79,7 @@ def main():
                                     out_file.write(var[2]+"\t"+IDictionary[gene]+"\t"+gene+"\t"+max(scores)+"\n")
 
 
-            print (c,"/728838")
+            print (c,"/728838") #to be fix
 
 
 
