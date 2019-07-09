@@ -11,7 +11,6 @@ or you can dowload ncboost directly from  [![DOI](https://zenodo.org/badge/DOI/1
 ```
 ./NCBoost_scripts/ncboost_annotate_INDELS.sh /pathto/inF.tsv /pathto/outF.tsv \
                                              /pathto/reference_genome.fasta
-
 ```
 Descrizione veloce 
 
