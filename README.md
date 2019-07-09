@@ -19,6 +19,11 @@ Descrizione veloce
                                             /PCHIC_data.tx 
                                             5
 ```
+Descrizione veloce
+
+```
+./NCBoost_scripts/ncboost_annotate_fix.sh /pathto/inF.tsv /pathto/outF.tsv 
+```
 Descrizione veloce 
 
 ```
