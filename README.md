@@ -9,43 +9,44 @@ or you can dowload ncboost directly from  [![DOI](https://zenodo.org/badge/DOI/1
 ## Elenco nuove funzioni:
 
 ```
-./NCBoost_scripts/ncboost_annotate_INDELS.sh /pathto/inF.tsv /pathto/outF.tsv /pathto/reference_genome.fasta
+./NCBoost_scripts/ncboost_annotate_INDELS.sh /pathto/inF.tsv /pathto/outF.tsv \
+                                             /pathto/reference_genome.fasta
 
 ```
 Descrizione veloce 
 
 ```
-./NCBoost_scripts/ncboost_annotate_PCHIC.sh /pathto/inF.tsv /pathto/outF.tsv 
+./NCBoost_scripts/ncboost_annotate_PCHIC.sh /pathto/inF.tsv /pathto/outF.tsv \
+                                            /PCHIC_data.tx 
+                                            5
 ```
 Descrizione veloce 
 
 ```
-./NCBoost_scripts/ncboost_annotate_INDELS.sh /pathto/inF.tsv /pathto/outF.tsv
+./NCBoost_scripts/ncboost_viual.sh 
 ```
 Descrizione veloce 
 
 ```
-./NCBoost_scripts/ncboost_annotate_INDELS.sh /pathto/inF.tsv /pathto/outF.tsv
-```
-Descrizione veloce 
-
-```
-./NCBoost_scripts/ncboost_annotate_INDELS.sh /pathto/inF.tsv /pathto/outF.tsv
-```
-Descrizione veloce 
-
-```
-./NCBoost_scripts/ncboost_annotate_INDELS.sh 
+./NCBoost_scripts/ncboost_merge.sh
 ```
 Descrizione veloce 
 
 
 ## Come installarlo
 
+Get into the NCBoost folder with `cd /NCBoost` and run:
 
 ```
-./NCBoost_scripts/prepare_feature_databases.sh
+git clone https://github.com/apollo994/NC_scripts.git
+cd /NC_scripts
 ```
+
+```
+./NC_script/pimp_my_NCBoost.sh
+```
+
+Descrizione veloce 
 
 
 ## Test
