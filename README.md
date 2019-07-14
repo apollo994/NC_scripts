@@ -16,7 +16,7 @@ Descrizione veloce
 
 ```
 ./NCBoost_scripts/ncboost_annotate_PCHIC.sh /pathto/inF.tsv /pathto/outF.tsv \
-                                            /PCHIC_data.tx 
+                                            /PCHIC_data.tx \
                                             5
 ```
 Descrizione veloce
@@ -27,7 +27,7 @@ Descrizione veloce
 Descrizione veloce 
 
 ```
-./NCBoost_scripts/ncboost_viual.sh 
+./NCBoost_scripts/ncboost_viual.sh chr:start-end referenece.fa sample
 ```
 Descrizione veloce 
 
