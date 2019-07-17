@@ -1,12 +1,15 @@
 # NCtool
 
 
-
 Descrizione bella lunga di cosa ci sta qui, but before you need to dowload and install [NCboost](https://github.com/RausellLab/NCBoost)
 
-or you can dowload ncboost directly from  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2537088.svg)](https://doi.org/10.5281/zenodo.2537088)  
 
-## Elenco nuove funzioni:
+## Annotation pipelines:
+
+```
+./NCBoost_scripts/ncboost_annotate.sh /pathto/inF.tsv /pathto/outF.tsv 
+```
+Descrizione veloce 
 
 ```
 ./NCBoost_scripts/ncboost_annotate_INDELS.sh /pathto/inF.tsv /pathto/outF.tsv \
@@ -21,18 +24,10 @@ Descrizione veloce
 ```
 Descrizione veloce
 
-```
-./NCBoost_scripts/ncboost_annotate_fix.sh /pathto/inF.tsv /pathto/outF.tsv 
-```
-Descrizione veloce 
+## Visualisation pipelines:
 
 ```
 ./NCBoost_scripts/ncboost_viual.sh chr:start-end referenece.fa sample
-```
-Descrizione veloce 
-
-```
-./NCBoost_scripts/ncboost_merge.sh
 ```
 Descrizione veloce 
 
@@ -52,17 +47,9 @@ cd /NC_scripts
 
 Descrizione veloce 
 
-
-## Test
-
-
-
 ## References
 
-1: Wang and Hakonarson; (2010). ANNOVAR: functional annotation of genetic variants from high-throughput sequencing data. Nucleic Acids Res. 38, e164-e164.
-
-2: di Iulio et al. (2018). The human noncoding genome defined by genetic diversity. Nat. Genet. 50, 333-337.
-
+Caron et al; (2019). NCBoost classifies pathogenic non-codingvariants in Mendelian diseases throughsupervised learning on purifying selectionsignals in humans. Genome Biology,20:32 
 
 
 ## Contact
