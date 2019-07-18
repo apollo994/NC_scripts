@@ -24,7 +24,7 @@ The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html)
 
 In the following section are presented descriptions of the pipelines, how to use them and run them as a job on the Sanger Institute HPC cluster.
 
-\
+
 ## Annotation pipelines
 
 Run this script for the standard annoation and scoring pipeline provided by NCBoost (bug fixed).
@@ -49,7 +49,7 @@ The additional arguments are the interaction table and the interaction threshold
                                             5
 ```
 
-\
+
 ## Visualisation pipelines
 
 Run this script to generate a .wig file to display patogenicity score of a region of interest.
