@@ -27,13 +27,13 @@ In the following section are presented descriptions of the pipelines, how to use
 
 ## Annotation pipelines
 
-
+\
 Run this script for the standard annoation and scoring pipeline provided by NCBoost (bug fixed).
 ```
 ./NCBoost_scripts/ncboost_annotate.sh /path/to/inF.tsv /path/to/outF.tsv 
 ```
 
-
+\
 Run this script to annoate and score INDELS variants using a rappresentative SNVs.
 The additional argument is the reference genome, for more detail see **link** 
 ```
@@ -41,7 +41,7 @@ The additional argument is the reference genome, for more detail see **link**
                                              /pathto/reference_genome.fa
 ```
 
-
+\
 Run this script to use chromatin-chromatin interaction data (PCHiC) as gene to variant assignament method.
 The additional arguments are the interaction table and the interaction threshold, for more detail see **link** 
 ```
@@ -53,7 +53,7 @@ The additional arguments are the interaction table and the interaction threshold
 
 ## Visualisation pipelines
 
-
+\
 Run this script to generate a .wig file to display patogenicity score of a region of interest.
 The first argument defines the genomic region (es. 10:122223:122875) the second is the reference geneome and the third (option) can be use to assign a name to the track.
 
