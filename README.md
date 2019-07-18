@@ -1,7 +1,25 @@
 # NCtools
 
 
-Descrizione bella lunga di cosa ci sta qui, but before you need to dowload and install [NCboost](https://github.com/RausellLab/NCBoost)
+This repository contains a summary of the work did during my traineeship at Sanger Institute, UK. 
+
+The aim of this project is to implement some new features to NCBoost, machine learning model (gradient tree boosting) designed to assign pathogenicity score to non-coding genetic single nucleotide variants (SNVs) in humans. The model has been trained by the authors using experimentally validated non-coding pathogenic variants and the prediction is based on features that belong to the following categories:
+
+Interspecies conservation
+Recent and ongoing selection signals in humans
+Gene-based features
+Sequence context
+Epigenetic features
+
+In this context, during my project, I developed modified versions of the pipeline to:
+
+annotate and score INDELS
+implement chromatin-chroma interaction data during gene assignment step
+visualize the score on genome browser interfaces
+
+To use these pipelines a functioning NCBoost system needs to be installed and functioning, learn how to do that [here](https://github.com/RausellLab/NCBoost).
+ 
+In the following section are presented a brief description of the pipelines, how to use them and send as a job on the Sanger Institute HPC cluster.
 
 
 ## Annotation pipelines:
