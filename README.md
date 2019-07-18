@@ -53,7 +53,7 @@ Caron et al; (2019). NCBoost classifies pathogenic non-codingvariants in Mendeli
 
 
 ## Contact
-Please address comments and questions about NCBoost to me
+Please address comments and questions about NCtool to fabio.zanarello.94@gmail.com
 
 ## License
 
