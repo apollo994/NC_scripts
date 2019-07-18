@@ -19,7 +19,7 @@ In this context, during my project, I developed modified versions of the pipelin
 
 To use these pipelines a functioning NCBoost system needs to be installed and functioning on your machine, learn how to do that [here](https://github.com/RausellLab/NCBoost).
 
-Then add all the script present in `NCtools_scripts/` to the NCBoost folder `NCBoost/NCBoost_scripts`.
+Then add all the scripts present in `NCtools/NCtools_scripts/` to the NCBoost folder `NCBoost/NCBoost_scripts/`.
 
 The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and a the human reference genome sequence that you dowloand from [ensambl](https://grch37.ensembl.org/index.html) ftp server:`ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/`
 
