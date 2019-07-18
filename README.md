@@ -18,7 +18,9 @@ In this context, during my project, I developed modified versions of the pipelin
 + visualize the score on genome browser interfaces
 
 To use these pipelines a functioning NCBoost system needs to be installed and functioning, learn how to do that [here](https://github.com/RausellLab/NCBoost).
-The only additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and a the human reference genome sequence that you can get [here](ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/)   
+The only additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and a the human reference genome sequence that you dowloand from [ensambl](https://grch37.ensembl.org/index.html) ftp server.   
+`ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/`
+
  
 In the following section are presented descriptions of the pipelines, how to use them and run them as a job on the Sanger Institute HPC cluster.
 
