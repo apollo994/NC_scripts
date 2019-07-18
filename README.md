@@ -23,8 +23,7 @@ The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html)
 
 In the following section are presented descriptions of the pipelines, how to use them and run them as a job on the Sanger Institute HPC cluster.
 
-
-## Annotation pipelines:
+## Run annotation pipelines
 
 ```
 ./NCBoost_scripts/ncboost_annotate.sh /pathto/inF.tsv /pathto/outF.tsv 
@@ -44,12 +43,18 @@ Descrizione veloce
 ```
 Descrizione veloce
 
-## Visualisation pipelines:
+## Run visualisation pipelines
 
 ```
 ./NCBoost_scripts/ncboost_viual.sh chr:start-end referenece.fa sample
 ```
 Descrizione veloce 
+
+## Run NCBoost on the farm
+
+```
+blablabla
+```
 
 
 ## References
@@ -58,6 +63,7 @@ Caron et al; (2019). NCBoost classifies pathogenic non-codingvariants in Mendeli
 
 
 ## Contact
+
 Please address comments and questions about NCtool to fabio.zanarello.94@gmail.com
 
 ## License
