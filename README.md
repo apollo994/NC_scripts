@@ -69,8 +69,9 @@ blablabla
 
 ## References
 
-Caron et al; (2019). NCBoost classifies pathogenic non-codingvariants in Mendelian diseases throughsupervised learning on purifying selectionsignals in humans. Genome Biology,20:32 
+1: Caron et al. (2019). NCBoost classifies pathogenic non-codingvariants in Mendelian diseases throughsupervised learning on purifying selectionsignals in humans. Genome Biology. 20(1), 20:32.
 
+2: Javierre et al.(2016). Lineage-Specific Genome Architecture Links Enhancers and Non-coding Disease Variants to Target Gene Promoters. Cell, 167(5), 1369-1384.e19.
 
 ## Contact
 
