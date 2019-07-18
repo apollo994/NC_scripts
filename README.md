@@ -17,6 +17,8 @@ In this context, during my project, I developed modified versions of the pipelin
 + implement chromatin-chroma interaction data during gene assignment step
 + visualize the score on genome browser interfaces
 
+## How to run the pipelines
+
 To use these pipelines a functioning NCBoost system needs to be installed and functioning on your machine, learn how to do that [here](https://github.com/RausellLab/NCBoost).
 
 Then add all the scripts present in `NCtools/NCtools_scripts/` to the NCBoost folder `NCBoost/NCBoost_scripts/`.
@@ -27,7 +29,7 @@ The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html)
 In the following section are presented descriptions of the pipelines, how to use them and run them as a job on the Sanger Institute HPC cluster.
 
 
-## Annotation pipelines
+### Annotation pipelines
 
 Run this script for the standard annoation and scoring pipeline provided by NCBoost (bug fixed).
 ```
@@ -52,7 +54,7 @@ The additional arguments are the interaction table and the interaction threshold
 ```
 
 
-## Visualisation pipelines
+### Visualisation pipelines
 
 Run this script to generate a .wig file to display patogenicity score of a region of interest.
 The first argument defines the genomic region (es. `13:32315086-32400266`), the second is the reference geneome and the third (option) can be use to assign a name to the track.
@@ -62,7 +64,7 @@ The first argument defines the genomic region (es. `13:32315086-32400266`), the 
 ```
 
 
-## NCBoost on the farm
+### NCBoost on the farm
 
 ```
 blablabla
