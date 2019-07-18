@@ -53,7 +53,7 @@ The additional arguments are the interaction table and the interaction threshold
 ## Visualisation pipelines
 
 Run this script to generate a .wig file to display patogenicity score of a region of interest.
-The first argument defines the genomic region (es. 10:122223:122875) the second is the reference geneome and the third (option) can be use to assign a name to the track.
+The first argument defines the genomic region (es. 13:32315086-32400266), the second is the reference geneome and the third (option) can be use to assign a name to the track.
 
 ```
 ./NCBoost_scripts/ncboost_viual.sh chr:start-end referenece.fa sample
