@@ -1,7 +1,7 @@
 # NCtools
 
 
-This repository contains a summary of the work did during my traineeship at Sanger Institute, UK. 
+This repository contains a summary of the work done during my traineeship at Sanger Institute, UK. 
 
 The aim of this project is to implement some new features to NCBoost, machine learning model (gradient tree boosting) designed to assign pathogenicity score to non-coding genetic single nucleotide variants (SNVs) in humans. The model has been trained by the authors using experimentally validated non-coding pathogenic variants and the prediction is based on features that belong to the following categories:
 
