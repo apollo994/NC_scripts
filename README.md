@@ -1,4 +1,4 @@
-# NCtool
+# NCtools
 
 
 Descrizione bella lunga di cosa ci sta qui, but before you need to dowload and install [NCboost](https://github.com/RausellLab/NCBoost)
