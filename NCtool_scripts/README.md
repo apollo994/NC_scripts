@@ -3,18 +3,18 @@
 Here you will find a brief description of the modification done to the pipeline to score and annotate INDELS and to use chromatin-chromatin interaction for gene assignment.
 The last section describes the pipeline for generate a .wig file for pathogenicity score visualization on the genome browser.
 
-###INDELS annotation
+### INDELS annotation
 
 The strategy in use to annotate and score INDELS consists in convert the INDELS in a a list of representative SNVs.
 This task is performed by `prepare_INDELS_from_input.py` and two examples (insertion and deletion) of the conversion are given below
 
-####INSERTION
+#### INSERTION
 Chr 	start	end	ref	alt
 10	130315 **7**	130315 **7**	T	TACAC
 is converted into:
 10	130315 **8**	130315 **8**	**C**	**N**
 
-####DELETION
+#### DELETION
 (supported also – and * deletion)
 Chr 	start	end	ref	alt
 10	101254508	101254508	CTCTTCTT	C
