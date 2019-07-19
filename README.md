@@ -38,7 +38,7 @@ Run this script for the standard annotation and scoring pipeline provided by NCB
 
 \
 Run this script to annotate and score INDELS variants using a representative SNVs.
-The additional argument is the reference genome, for more detail see **link**
+The additional argument is the reference genome, for more detail see [here](https://github.com/apollo994/NCtools/tree/master/NCtool_scripts)
 ```
 ./NCBoost_scripts/ncboost_annotate_INDELS.sh /path/to/inF.tsv /path/to/outF.tsv \
                                              /pathto/reference_genome.fa
@@ -46,7 +46,7 @@ The additional argument is the reference genome, for more detail see **link**
 
 \
 Run this script to use chromatin-chromatin interaction data (PCHiC) as gene to variant assignment method.
-The additional arguments are the interaction table and the interaction threshold, for more detail see **link**
+The additional arguments are the interaction table and the interaction threshold, for more detail see [here](https://github.com/apollo994/NCtools/tree/master/NCtool_scripts)
 ```
 ./NCBoost_scripts/ncboost_annotate_PCHIC.sh /pathto/inF.tsv /pathto/outF.tsv \
                                             /PCHIC_data.txt \
