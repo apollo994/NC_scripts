@@ -1,4 +1,5 @@
 #script to compare precomputed and new NCBoost values
+# Fabio Zanarello, Sanger Institute, 2019
 
 library("ggplot2")
 library("gridExtra")
@@ -151,13 +152,3 @@ print(b)
 print(c)
 print(grid.arrange(d, e, nrow = 2))
 dev.off()
-
-
-
-
-
-
-
-
-
-

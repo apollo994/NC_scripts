@@ -1,3 +1,5 @@
+# Fabio Zanarello, Sanger Institute, 2019
+
 #script to compare standard and PCICH score values of intergenic position
 
 library("ggplot2")

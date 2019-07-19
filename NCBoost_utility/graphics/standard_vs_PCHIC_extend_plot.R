@@ -1,3 +1,5 @@
+# Fabio Zanarello, Sanger Institute, 2019
+
 #script to compare standard and PCICH score values of intergenic position
 
 library("ggplot2")
@@ -33,15 +35,15 @@ data$reas[which(data$PC_as_RV_low==0)]<-"NOT_reassigned"
 data$var_gene[which(data$PC_as_RV_low>1)]<-"1-many"
 data$var_gene[which(data$PC_as_RV_low==1)]<-"1-1"
 data$var_gene[which(data$PC_as_RV_low==0)]<-"NA"
-  
+
 #only reassigned subset
 re_data<-subset(data, data$reas=="reassigned")
 #only multiple reass subset
 mul_data<-subset(data,data$var_gene=="1-many")
 #only_multiple reass and same chicago (diff gene hi low)
 RVIS_choice<-subset(data,data$var_gene=="1-many" & as.character(data$PC_gene_RV_hi)!=as.character(data$PC_gene_RV_low))
-#nuova colonna per vedere se lo score é salito con RVIS o no 
-RVIS_choice<-RVIS_choice[complete.cases(RVIS_choice$NCsore_RV_hi) & complete.cases(RVIS_choice$NCsore_RV_low), ] 
+#nuova colonna per vedere se lo score é salito con RVIS o no
+RVIS_choice<-RVIS_choice[complete.cases(RVIS_choice$NCsore_RV_hi) & complete.cases(RVIS_choice$NCsore_RV_low), ]
 RVIS_choice$direction[which(RVIS_choice$NCsore_RV_hi<RVIS_choice$NCsore_RV_low)]<-"opposite"
 RVIS_choice$direction[which(RVIS_choice$NCsore_RV_hi>RVIS_choice$NCsore_RV_low)]<-"same"
 #only single reass subset
@@ -60,7 +62,7 @@ f<-ggplot(data, aes(x=data$reas, fill=var_gene))+geom_bar()
 f<-f+ annotate("text", x=1, y=nrow(data[data$reas=="NOT_reassigned",])-150, label = nrow(data[data$reas=="NOT_reassigned",]) , color="black", size=5 )
 f<-f+ annotate("text", x=2, y=nrow(data[data$reas=="reassigned",])-150, label = nrow(data[data$var_gene=="1-1",]) , color="black", size=5 )
 f<-f+ annotate("text", x=2, y=nrow(na.omit(data[data$var_gene=="1-many",]))-100, label = nrow(data[data$var_gene=="1-many",]) , color="black", size=5 )
-f<-f+ labs(title = "Variant gene reassignation with PCHIC",  x = "Reassignation results",y="SNVs", 
+f<-f+ labs(title = "Variant gene reassignation with PCHIC",  x = "Reassignation results",y="SNVs",
            subtitle = paste(as.character(length(which(data$PC_as_RV_low>0)))," gene reassigned (",as.character(nrow(subset(data,data$PC_gene_RV_hi!="NOT_FOUND"))-nrow(subset(data,data$ANNOVAR_gene!="NOT_FOUND")))," gene orphan variants recovered)", sep = ""))
 f
 
@@ -98,7 +100,7 @@ t1
 
 bb<-boxplot(RVIS_choice$NCsore_RV_hi[RVIS_choice$NCsore_RV_hi>0.3], RVIS_choice$NCsore_RV_low[RVIS_choice$NCsore_RV_low>0.3])
 
-#scatter plot of all gene feature in variants with lower NC score in higher RVIS genes 
+#scatter plot of all gene feature in variants with lower NC score in higher RVIS genes
 
 s1<-ggplot(other_feature, aes(x=other_feature$pLI_RV_low, y=other_feature$pLI_RV_hi))+geom_point()
 s1<-s1 + coord_fixed(ratio = 1)

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#Fabio Zanarello, Sanger Institute, 2019
 
 # this script reads a result table from NCBoost and a recovery dict from prepare_INDELS_from_input.py
 # and reformat the result table with the original INDELS information

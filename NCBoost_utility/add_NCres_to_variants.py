@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Fabio Zanarello, Sanger Institute, 2019
 
 # this script reads a variants table with the following format (tab sep):
 

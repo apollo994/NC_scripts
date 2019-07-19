@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Fabio Zanarello, Sanger Institute, 2019
 
 # this script readz a variants table and the results file of NCBoost scores/variants
 # intersection (precomputed) from my_vcf_vs_NCBoost_precomp_tabix.sh temp file

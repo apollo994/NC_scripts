@@ -1,4 +1,5 @@
 #script to plot the correlation between effect size and NCBoost score
+# Fabio Zanarello, Sanger Institute, 2019
 
 library("ggplot2")
 
@@ -31,7 +32,7 @@ rare = data.frame(group = "MAF<0.01", value = scores_rare)
 NOT_rare = data.frame(group = "MAF>=0.01", value = scores_NOT_rare)
 rare_NOT_rare=rbind(rare,NOT_rare)
 
-#test the rare vs NOT_rare differences 
+#test the rare vs NOT_rare differences
 pv=signif(ks.test(scores_rare,scores_NOT_rare, alternative = "less")$p.value,4)
 pv=paste("pv=",pv, sep="")
 
@@ -68,11 +69,3 @@ e<-e + annotate("text", x=c(1.5), y=(0.85), label = pv , color="black", size=4 )
 e<-e + labs(title = "Positions precalculated by NCBoost",
             subtitle = "Distribution of rare and not rare patogenicity score",
             x = "MAF", y= "Pathogenicity score")
-
-
-
-
-
-
-
-

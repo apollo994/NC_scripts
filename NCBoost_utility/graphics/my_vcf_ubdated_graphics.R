@@ -1,4 +1,5 @@
 #script to plot the correlation between effect size and NCBoost score
+# Fabio Zanarello, Sanger Institute, 2019
 
 library("ggplot2")
 library("plyr")
@@ -56,6 +57,3 @@ d<-d + theme(axis.text.x = element_text(angle = 90))
 
 
 print(d)
-
-
-

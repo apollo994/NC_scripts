@@ -1,44 +1,39 @@
 #!/usr/bin/env bash
 # Barthelemy Caron, Clinical BioInformatics Lab, IMAGINE
+# Modified by Fabio Zanarello, Sanger Institute, 2019
 
 inF=$1
 outF=$2
-PCth=$3
+ref=$3
 
 file_name=${inF:0:(${#inF}-4)}
 
-
-#START_my_chages################################################################
-# default value for PCHIC is 5
-
-if [ -z $PCth ];then
-  PCth=5
-fi
-#END_my_chages##################################################################
-
 path_to_annovar='annovar'
 path_to_cadd='NCBoost_features'
-#START_my_chages################################################################
-path_to_PCHIC='PCHIC_data'
-#END_my_chages##################################################################
 
 
 # sorting data for tabix
 echo $'\nsorting data\n'
 sort -k1,1 -k2,2n $inF -o $inF
 
+#START_my_chages################################################################
 
+# 0- INDELS extraction and formatting
+echo $'\nINDELS extraction and formatting\n'
+python3.6.1 NCBoost_scripts/prepare_INDELS_from_input.py --NC_input $inF  --ref $ref --output $file_name.only_INDELS --rec $file_name.recovery_dict
 
 # 1- ANNOVAR gene-based annotation
 echo $'\nLaunching ANNOVAR\n'
 anno_out=$file_name
-perl $path_to_annovar/annotate_variation.pl -out $anno_out -build hg19 -splicing_threshold 10 $inF $path_to_annovar/humandb/
+perl $path_to_annovar/annotate_variation.pl -out $anno_out -build hg19 -splicing_threshold 10 $file_name.only_INDELS $path_to_annovar/humandb/
 
+
+#END_my_chages################################################################
 
 
 # 2- clean ANNOVAR output file, add gene-based features, one-hot encoding of the regions (~200 var/sec)
 echo $'\n\nCleanning ANNOVAR annotations, adding gene-based and context-awareness features\n'
-python3.6.1 NCBoost_scripts/clean_annovar_PCIHC_RVIS.py $anno_out.variant_function $anno_out.invalid_input $anno_out.cleaned_variant_function  $PCth $path_to_PCHIC/PCHIC_for_NC.txt
+python3.6.1 NCBoost_scripts/clean_annovar.py $anno_out.variant_function $anno_out.invalid_input $anno_out.cleaned_variant_function
 
 
 
@@ -70,6 +65,7 @@ python3.6.1 NCBoost_scripts/get_GnomAD_MAFs.py $anno_out'_cadd_1000GP_full.tsv' 
 echo $'\n\nAdding CDTS score\n'
 python3.6.1 NCBoost_scripts/get_CDTS.py $anno_out'_cadd_1000GP_gnomad.tsv' $anno_out'_complete.tsv'
 
+
 #START_my_chages################################################################
 
 # 8- Scoring with NCBoost (~60 var/sec)
@@ -78,12 +74,11 @@ n_rows_in_file=($(wc -l $anno_out'_complete.tsv'))
 n_columns_in_file=($(head -1 $anno_out'_complete.tsv' | sed 's/[^\t]//g' | wc -c))
 /software/R-3.4.2/bin/Rscript NCBoost_scripts/NCBoost_score.R $anno_out'_complete.tsv' $file_name.temp_res $n_rows_in_file $n_columns_in_file
 
+# 9- Recovery of the indels from the result
+echo $'\n\nRecovery of the original indels and formating of the results\n'
+python3.6.1 NCBoost_scripts/INDELS_recovery_from_res.py --NC_res $file_name.temp_res --rec $file_name.recovery_dict --NC_indels $outF
 
-echo $'\n\nAdding PC stat\n'
-python3.6.1 NCBoost_scripts/add_PC_stat.py --NC_res $file_name.temp_res --PC_stat $anno_out.PC_res --NC_update $outF
-
-
-#END_my_chages##################################################################
+#END_my_chages################################################################
 
 
 echo $'\n\n cleaning\n'
@@ -102,7 +97,8 @@ rm $anno_out'.log'
 #START_my_chages################################################################
 
 
-rm $anno_out'.PC_res'
 rm $file_name'.temp_res'
+rm $file_name'.recovery_dict'
+rm $file_name'.only_INDELS'
 
 #END_my_chages################################################################

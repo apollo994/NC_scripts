@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#Fabio Zanarello, Sanger Institute, 2019
 
 # this script reads a input table for NCBoost
 # es:

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Fabio Zanarello, Sanger Institute, 2019
 
 #this script uses vcf input file (--input) with the following fasion (tab spaced)
 # VAR	rs	chr	pos	ref	alt

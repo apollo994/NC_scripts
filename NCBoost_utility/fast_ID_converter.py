@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Fabio Zanarello, Sanger Institute, 2019
 
 # script to convert from ensembl to geneID (or the opposite) a list of genes (one ID per line)
 # REMEMEBR to specify the input and outut IDs format

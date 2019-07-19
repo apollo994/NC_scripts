@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Fabio Zanarello, Sanger Institute, 2019
 
 #STRONGLY ADVISED TO RUN WITH PYPY3
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Fabio Zanarello, Sanger Institute, 2019
 
 # this script reads a table of precomputed score (space delimited, no header):
 # 2 103060300 intronic IL18RAP 0.03276616 0.3697275149820258

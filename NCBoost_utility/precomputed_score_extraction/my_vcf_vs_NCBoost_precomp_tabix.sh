@@ -1,4 +1,5 @@
 #!/bin/bash
+# Fabio Zanarello, Sanger Institute, 2019
 
 #bash script that takes a vcf file (arg 1), extracts coordinates (saving in a file),
 #read the file and ask to tabix if the coordinate are present in (arg 2) the precomputed

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Fabio Zanarello, Sanger Institute, 2019
+#Fabio Zanarello, Sanger Institute, 2019
 
 # This script take genomic coordinates and generate a NCBoost input linke table
 
@@ -48,19 +48,19 @@ def generate_table(seq,window,out_file):
 
             coo=str(int(start)+counter)
             if base=="A":
-                alt="T"
+                alt="C"
                 my_output.write(str(chr)+"\t"+coo+"\t"+coo+"\t"+base+"\t"+alt+"\n")
                 counter=counter+1
             if base=="T":
-                alt="A"
-                my_output.write(str(chr)+"\t"+coo+"\t"+coo+"\t"+base+"\t"+alt+"\n")
-                counter=counter+1
-            if base=="C":
                 alt="G"
                 my_output.write(str(chr)+"\t"+coo+"\t"+coo+"\t"+base+"\t"+alt+"\n")
                 counter=counter+1
+            if base=="C":
+                alt="A"
+                my_output.write(str(chr)+"\t"+coo+"\t"+coo+"\t"+base+"\t"+alt+"\n")
+                counter=counter+1
             if base=="G":
-                alt="C"
+                alt="T"
                 my_output.write(str(chr)+"\t"+coo+"\t"+coo+"\t"+base+"\t"+alt+"\n")
                 counter=counter+1
             if base=="N":

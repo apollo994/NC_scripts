@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Fabio Zanarello, Sanger Institute, 2019
 
 #this script uses NCBoost output file as input in order to
 #generate a .txt file with name my_coordinates_for_NCBoost.txt (or the set one with --output)
