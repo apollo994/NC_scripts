@@ -87,4 +87,6 @@ Please address comments and questions about NCtool to fabio.zanarello.94@gmail.c
 
 ## License
 
-NCtools scripts are available under the [Apache License 2.0.] (http://www.apache.org/licenses/LICENSE-2.0)
+NCtools scripts are available under the Apache License 2.0. 
+
+Read more about [here](http://www.apache.org/licenses/LICENSE-2.0)
