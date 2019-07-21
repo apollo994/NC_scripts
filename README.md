@@ -62,6 +62,7 @@ The first argument defines the genomic region (es. `13:32315086-32400266`), the 
 ```
 ./NCBoost_scripts/ncboost_viual.sh chr:start-end referenece.fa sample
 ```
+![alt text](https://github.com/apollo994/NCtools/blob/master/pathogenicity_track_example.png)
 
 
 ### NCBoost on the farm
