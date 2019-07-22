@@ -16,7 +16,7 @@ This task is performed by `prepare_INDELS_from_input.py` and two examples (inser
 #### INSERTION
 ```
 chr start   end   ref  alt
-1   12589   12589   G   ATT
+1   12589   12589   G   GATT
 ```
 is converted to SNV representing the following position:
 ```
