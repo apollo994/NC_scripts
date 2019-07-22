@@ -17,14 +17,22 @@ In this context, during my project, I developed modified versions of the pipelin
 + implement chromatin-chroma interaction data during gene assignment step
 + visualize the score on genome browser interfaces
 
+The original NCBoost scripts and file were downloaded on 11th April 2019 and my project took place in the following 4 month.
+
 ## How to run the pipelines
+
+#### If you are working on the farm
+
+The path to reach NCBoost scripts on the farm is `/nfs/team151/fz3/NCBoost`, all of them have to be run from this folder as designed by NCBoost authors.
+
+#### If you are starting from zero
 
 To use these pipelines a functioning NCBoost system needs to be installed and functioning on your machine, learn how to do that [here](https://github.com/RausellLab/NCBoost).
 
 Then add all the scripts present in `NCtools/NCtools_scripts/` to the NCBoost folder `NCBoost/NCBoost_scripts/`.
 
-The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and a the human reference genome sequence that you download from [ensambl](https://grch37.ensembl.org/index.html) ftp server:`ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/`
-
+The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and a the human reference genome sequence that you download from [ensambl](https://grch37.ensembl.org/index.html) ftp server:`ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/`/
+/ 
 
 In the following section are presented descriptions of the pipelines, how to use them and run them as a job on the Sanger Institute HPC cluster.
 
@@ -68,11 +76,7 @@ An example of the resulting track is given below (intron region of gene IKZF1).
 
 ### NCBoost on the farm
 
-Run this script to sent a job to the farm. The first argument is the job name, the second the queue type (normal, long, ecc.) and the third the command.
 
-```
-./run_my_job.sh job_name queue command
-```
 
   
 ## References
