@@ -17,7 +17,6 @@ In this context, during my project, I developed modified versions of the pipelin
 + implement chromatin-chroma interaction data during gene assignment step
 + visualize the score on genome browser interfaces
 
-The original NCBoost scripts and files were downloaded on 11th April 2019 and my project took place in the following 4 month.
 
 ## How to run the pipelines
 
@@ -52,6 +51,7 @@ Run this script for the standard annotation and scoring pipeline provided by NCB
 \
 Run this script to annotate and score INDELS variants using a representative SNVs.
 The additional argument is the reference genome, for more detail see [here](https://github.com/apollo994/NCtools/tree/master/NCtool_scripts)
+If you are working on the farm you will find a reference geneome in `/NCBoost/ref_genome`.
 ```
 ./NCBoost_scripts/ncboost_annotate_INDELS.sh /path/to/inF.tsv /path/to/outF.tsv \
                                              /pathto/reference_genome.fa
@@ -60,6 +60,7 @@ The additional argument is the reference genome, for more detail see [here](http
 \
 Run this script to use chromatin-chromatin interaction data (PCHiC) as gene to variant assignment method.
 The additional arguments are the interaction table and the interaction threshold, for more detail see [here](https://github.com/apollo994/NCtools/tree/master/NCtool_scripts)
+If you are working on the farm you will find PCHIC intercation data in `/NCBoost/PCHIC_data`.
 ```
 ./NCBoost_scripts/ncboost_annotate_PCHIC.sh /pathto/inF.tsv /pathto/outF.tsv \
                                             /PCHIC_data.txt \
@@ -79,9 +80,13 @@ An example of the resulting track is given below (intron region of gene IKZF1).
 ![alt text](https://github.com/apollo994/NCtools/blob/master/pathogenicity_track_example.png)
 
 
-### NCBoost on the farm
+### Dataset and software used during the development
 
+The original NCBoost1.0 scripts and files were downloaded on 11th April 2019 and my project took place in the following 4 month.
 
++ NCBoost1.0
++ Homo sapien reference genome GRCh37 release 87 from ENSEMBL
++ ANNOVAR latest version (2018-Apr-16)
 
   
 ## References
