@@ -53,11 +53,11 @@ This annotation pipeline calls `clean_annovar_PCIHC.py` instead of `clean_annova
 The gene-variant interactions are defined in `PCHIC_data.txt` with a plain tex tab separated file with the following columns (this header is mandatory):
 
 ```
-var ENS sym max
-chr1_1692321_T_C  ENSG00000078369 GNB1  9.535
-chr1_1692321_T_C  ENSG00000231050 RP1-140A9.1 15.55
-chr7_2231966_T_C  ENSG00000203301 AL590822.1  5.330
-chr10_231976_G_C  ENSG00000162585 C1orf86 5.330
+var               ENS             sym           max
+chr1_1692321_T_C  ENSG00000078369 GNB1          9.535
+chr1_1692321_T_C  ENSG00000231050 RP1-140A9.1   15.55
+chr7_2231966_T_C  ENSG00000203301 AL590822.1    5.330
+chr10_231976_G_C  ENSG00000162585 C1orf86       5.330
 ```
 
 where `var` is the position of the variant, `ENS` and `sym` are respectively the ensembl and symbol ID of the interacting gene and `max` is the chicago score of the interaction.
