@@ -31,8 +31,7 @@ To use these pipelines a functioning NCBoost system needs to be installed and fu
 
 Then add all the scripts present in `NCtools/NCtools_scripts/` to the NCBoost folder `NCBoost/NCBoost_scripts/`.
 
-The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and a the human reference genome sequence that you download from [ensambl](https://grch37.ensembl.org/index.html) ftp server:`ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/`/
-/ 
+The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and a the human reference genome sequence that you download from [ensambl](https://grch37.ensembl.org/index.html) ftp server:`ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/`
 
 In the following section are presented descriptions of the pipelines, how to use them and run them as a job on the Sanger Institute HPC cluster.
 
