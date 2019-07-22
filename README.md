@@ -61,7 +61,7 @@ The first argument defines the genomic region (es. `13:32315086-32400266`), the 
 An example of the resulting track is given below (intron region of gene IKZF1). 
 
 ```
-./NCBoost_scripts/ncboost_viual.sh chr:start-end referenece.fa sample
+./NCBoost_scripts/ncboost_visual.sh chr:start-end referenece.fa sample
 ```
 ![alt text](https://github.com/apollo994/NCtools/blob/master/pathogenicity_track_example.png)
 
