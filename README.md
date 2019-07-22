@@ -17,13 +17,19 @@ In this context, during my project, I developed modified versions of the pipelin
 + implement chromatin-chroma interaction data during gene assignment step
 + visualize the score on genome browser interfaces
 
-The original NCBoost scripts and file were downloaded on 11th April 2019 and my project took place in the following 4 month.
+The original NCBoost scripts and files were downloaded on 11th April 2019 and my project took place in the following 4 month.
 
 ## How to run the pipelines
 
 #### If you are working on the farm
 
 The path to reach NCBoost scripts on the farm is `/nfs/team151/fz3/NCBoost`, all of them have to be run from this folder as designed by NCBoost authors.
+
+Some files are just linked in the NCBoost root directory, their physical location is:
++ `NCBoost_features -> /lustre/scratch119/humgen/teams/soranzo/users/fz3/NCBoost/NCBoost_features`
++ `python libraries -> /nfs/team151/fz3/pyPack`
++ `R libraries -> /nfs/team151/fz3/RPack`
++ `reference genome -> /lustre/scratch115/teams/soranzo/projects/MS_GWAS_txt_tables/reference_files/Homo_sapiens.GRCh37.dna.fa`
 
 #### If you are starting from zero
 
