@@ -75,7 +75,7 @@ The file is used at the end of the pipeline by `add_PC_stat.py` to add an extra 
 ### Visualization pipeline
 
 ```
-./NCBoost_scripts/ncboost_viual.sh chr:start-end referenece.fa sample
+./NCBoost_scripts/ncboost_visual.sh chr:start-end referenece.fa sample
 ```
 
 The aim of this pipeline is to generate a visualizable pathogenicity score track on the genome browser.
