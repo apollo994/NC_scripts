@@ -16,7 +16,7 @@ In this context, during my project, I developed modified versions of the pipelin
 + annotate and score INDELS
 + implement chromatin-chroma interaction data during gene assignment step
 + visualize the score on genome browser interfaces
-+ bux fix
++ bug fix
 
 
 ## How to run the pipelines
@@ -35,6 +35,8 @@ Some files are just linked in the NCBoost root directory, their physical locatio
 Functioning NCBoost system needs to be installed on your machine to use these pipelines, learn how to do that [here](https://github.com/RausellLab/NCBoost).
 
 Then, clone this repository in NCBoost root folder and copy all the scripts present in `NCtools/NCtools_scripts/` into `NCBoost_scripts/` folder.
+
+IMPORTANT, `clean_annovar.py` will be replaced with the bug fixed version. 
 
 The additional dependecy are [samtools](http://www.htslib.org/doc/samtools.html) and human reference genome sequence that you can download from [ensambl](https://grch37.ensembl.org/index.html) ftp server:`ftp://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/`.
 
