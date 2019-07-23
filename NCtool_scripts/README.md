@@ -3,6 +3,13 @@
 Here you will find a brief description of the modification done to the pipeline to score and annotate INDELS and to use chromatin-chromatin interaction for gene assignment.
 The last section describes the pipeline for generate a .wig file for pathogenicity score visualization on the genome browser.
 
+As general rules codes written by me is marked as `#Fabio Zanarello, Sanger Institute, 2019` while the modified NCBoost scripts as `# Modified by Fabio Zanarello, Sanger Institute, 2019` and:
+```
+#START_my_chages################################################################
+Some code
+#END_my_chages##################################################################
+```
+
 ### INDELS annotation
 
 ```
@@ -84,3 +91,10 @@ Then, NCBoost is called to compute the pathogenicity score for that positions an
 Both ensambl and UCSC genome browsers can be used, the second is recommended since allows to display additional features present in the .wig file.
 
 If you are not familiar with custom track have a look on the [ensembl](https://www.ensembl.org/info/website/upload/index.html) and [UCSC](https://genome.ucsc.edu/goldenPath/help/customTrack.html) tutorial pages.
+
+### Bug fix
+Some ANNOVAR formatting rules were not cosidered in `clean_annovar.py` script making incomplete the parsing of variants annotated as:
++ upstream
++ downstream
++ upstream;downstream
+`clean_annovar.py` present on the farm is already fixed. 
