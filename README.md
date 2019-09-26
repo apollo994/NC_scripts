@@ -85,7 +85,7 @@ The original NCBoost1.0 scripts and files were download on 11th of April 2019 an
 + NCBoost1.0
 + Homo sapien reference genome GRCh37 release 87 from ENSEMBL
 + ANNOVAR latest version (2018-Apr-16)
-For NCBoost libraries version and dependencies have a look [here](https://github.com/apollo994/NCBoost/blob/master/libraries.txt) 
++ For NCBoost libraries version and dependencies have a look [here](https://github.com/apollo994/NCBoost/blob/master/libraries.txt) 
   
 ## References
 
